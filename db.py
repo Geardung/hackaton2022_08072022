@@ -1,4 +1,5 @@
 
+from enum import unique
 from peewee import *
 from playhouse.postgres_ext import PostgresqlExtDatabase
 
@@ -7,7 +8,7 @@ try:
         database="hackaton",
         user="postgres",
         password="postgres",
-        host='localhost',
+        host='5.23.55.230',
         port=5432)
 
 except:
@@ -15,7 +16,7 @@ except:
         database='hackaton',
         user='postgres',
         password="postgres",
-        host='localhost', 
+        host='5.23.55.230', 
         port=5432)
 
 class BaseModel(Model):
@@ -24,13 +25,34 @@ class BaseModel(Model):
 
 class Users(BaseModel):
     
-    id = IntegerField(unique=True)
+    id = IntegerField(unique = True)
     
+class Goods(BaseModel):
+    
+    id = IntegerField(unique = True)
+
+    name = TextField()
+    
+    cost = IntegerField()
+    
+    mcc = TextField()
+    
+    merchantname = TextField()
+    
+
 class Checks(BaseModel):
     
+    id = TextField(unique=True, primary_key=True)
+    
     UserId = TextField()
+    
     CheckId = TextField()
+    
     ProductName = TextField()
+    
     ProductCost = TextField()
+    
     MerchantName = TextField()
+    
     MCC = TextField()
+    
