@@ -39,6 +39,12 @@ class Goods(BaseModel):
     
     merchantname = TextField()
     
+class Shops(BaseModel):
+    
+    name = TextField()
+    
+    
+    
 
 class Checks(BaseModel):
     
